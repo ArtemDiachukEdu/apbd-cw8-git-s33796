@@ -1,0 +1,35 @@
+@UniversityTasksDbFirstApi_HostAddress = https://localhost:7243
+
+### Courses (all)
+GET {{UniversityTasksDbFirstApi_HostAddress}}/api/courses
+
+### Courses (active only)
+GET {{UniversityTasksDbFirstApi_HostAddress}}/api/courses?activeOnly=true
+
+### Assignments for course 1 (published only)
+GET {{UniversityTasksDbFirstApi_HostAddress}}/api/courses/1/assignments?publishedOnly=true
+
+### Student dashboard
+GET {{UniversityTasksDbFirstApi_HostAddress}}/api/students/1/dashboard
+
+### Create submission
+POST {{UniversityTasksDbFirstApi_HostAddress}}/api/submissions
+Content-Type: application/json
+
+{
+  "assignmentId": 3,
+  "studentId": 5,
+  "repositoryUrl": "https://github.com/student/performance-review"
+}
+
+### Grade submission
+PUT {{UniversityTasksDbFirstApi_HostAddress}}/api/submissions/5/grade
+Content-Type: application/json
+
+{
+  "score": 23,
+  "feedback": "Correct use of projections and AsNoTracking. Please improve error messages."
+}
+
+### Delete submission
+DELETE {{UniversityTasksDbFirstApi_HostAddress}}/api/submissions/5
